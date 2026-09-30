@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sanby Salon — Men's Haircuts, Beard Styling &amp; Grooming</title>
+  <meta name="description" content="Sanby Salon is a men's hair salon and barbershop offering modern and classic haircuts, beard styling, hair colour and professional grooming. Book your appointment today.">
+  <meta name="theme-color" content="#FAF9F6">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="%SITE_URL%/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sanby Salon">
+  <meta property="og:title" content="Sanby Salon — Sharp Cuts. Clean Style. Confidence.">
+  <meta property="og:description" content="Modern cuts, classic grooming and personalised styling for men.">
+  <meta property="og:url" content="%SITE_URL%/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1593702295094-aea22597af65?auto=format&fit=crop&w=1200&h=630&q=75">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Barber finishing a client's haircut">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sanby Salon — Sharp Cuts. Clean Style. Confidence.">
+  <meta name="twitter:description" content="Modern cuts, classic grooming and personalised styling for men.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1593702295094-aea22597af65?auto=format&fit=crop&w=1200&h=630&q=75">
+  <meta name="twitter:image:alt" content="Barber finishing a client's haircut">
+
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+
+  <!-- Structured data, generated from site.config.js (confirmed details only). -->
+  <script type="application/ld+json">%SITE_JSONLD%</script>
+
+  <!-- Hide animated elements before first paint; fall back to fully visible content if the main
+       script never runs. With reduced motion, content still fades in but nothing moves. -->
+  <script>
+    (function (d) {
+      d.classList.add('anim');
+      var seen = false;
+      try { seen = sessionStorage.getItem('sanby:intro-seen') === '1'; } catch (e) {}
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('anim--reduced', 'no-loader');
+      // The branded preloader plays once per session; later loads go straight to the hero.
+      else if (seen) d.classList.add('no-loader');
+      // The preloader always starts the page from the top; don't let the browser restore an old position.
+      else if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.__animFallback = setTimeout(function () { d.classList.remove('anim', 'anim--reduced'); }, 4000);
+    })(document.documentElement);
+  </script>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" fill="currentColor"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M4 20l1.2-4.1A8.5 8.5 0 1 1 8.4 19L4 20Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 1c-1.2-.4-2.1-1.3-2.5-2.5l1-1-1-2L9 8.5Z" fill="currentColor"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4.5h-3A4 4 0 0 0 10 8.5V11H7.5v3.5H10V21h3.5v-6.5H16.5l.5-3.5h-3.5V8.8c0-.5.3-.8 1-.8Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 20V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 11v5.5M12 7.6v.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-drag" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <!-- Why Sanby icons (24px grid, 1.5 stroke) -->
+    <symbol id="i-scissors" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="6.5" r="2.5"/><circle cx="6" cy="17.5" r="2.5"/><path d="M8.2 7.7 20 16.5M8.2 16.3 20 7.5"/></g></symbol>
+    <symbol id="i-person" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></g></symbol>
+    <symbol id="i-comb" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5h17v3.5h-17z"/><path d="M6 11v6.5M9 11v6.5M12 11v6.5M15 11v4.5M18 11v4.5"/></g></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5s-5.5 6-5.5 10.2a5.5 5.5 0 0 0 11 0C17.5 9.5 12 3.5 12 3.5Z"/><path d="M9.5 14.5a2.6 2.6 0 0 0 2.2 2.4"/></g></symbol>
+    <symbol id="i-bottle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M10 3h4v3l1.8 2.2v11.3a1.5 1.5 0 0 1-1.5 1.5H9.7a1.5 1.5 0 0 1-1.5-1.5V8.2L10 6Z"/><path d="M8.2 12h7.6"/></g></symbol>
+    <symbol id="i-cup" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10h11v3.5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5Z"/><path d="M15.5 11h1.5a2.5 2.5 0 0 1 0 5h-1.5M4 21h12"/><path d="M8.5 3.5c-.8 1 .8 2 0 3M12 3.5c-.8 1 .8 2 0 3"/></g></symbol>
+  </svg>
+
+  <!-- Preloader (only shown when animations run; removed by src/js/loader.js) -->
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader__center">
+      <p class="loader__brand">
+        <span class="loader__word"><span data-loader-letter>S</span><span data-loader-letter>A</span><span data-loader-letter>N</span><span data-loader-letter>B</span><span data-loader-letter>Y</span></span>
+        <span class="loader__sub" data-loader-fade>Salon</span>
+      </p>
+      <div class="loader__track" data-loader-fade>
+        <span class="loader__line" data-loader-line></span>
+        <svg class="loader__scissors" data-loader-scissors viewBox="0 0 120 60">
+          <g class="blade" data-blade="a">
+            <path d="M32 37 58 31.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="24" cy="41" r="9" fill="none" stroke="currentColor" stroke-width="3"/>
+            <path d="M56 31.6 116 29.2 111 32.6Z" fill="currentColor"/>
+          </g>
+          <g class="blade" data-blade="b">
+            <path d="M32 23 58 28.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="24" cy="19" r="9" fill="none" stroke="currentColor" stroke-width="3"/>
+            <path d="M56 28.4 116 30.8 111 27.4Z" fill="currentColor"/>
+          </g>
+          <circle cx="58" cy="30" r="2.6" fill="#faf9f6"/>
+        </svg>
+      </div>
+    </div>
+    <p class="loader__tag" data-loader-fade>Sharp Cuts. Clean Style. Confidence.</p>
+    <p class="loader__count" data-loader-fade><span data-loader-count>0</span><small>%</small></p>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav" data-nav>
+    <div class="nav__inner container">
+      <a class="nav__logo" href="#top" aria-label="Sanby Salon — back to top">
+        <span class="nav__logo-mark">Sanby</span><span class="nav__logo-sub">Salon</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <ul>
+          <li><a href="#top" data-nav-link>Home</a></li>
+          <li><a href="#about" data-nav-link>About</a></li>
+          <li><a href="#services" data-nav-link>Services</a></li>
+          <li><a href="#styles" data-nav-link>Styles</a></li>
+          <li><a href="#gallery" data-nav-link>Gallery</a></li>
+          <li><a href="#reviews" data-nav-link>Reviews</a></li>
+          <li><a href="#contact" data-nav-link>Contact</a></li>
+        </ul>
+        <span class="nav__indicator" data-nav-indicator aria-hidden="true"></span>
+      </nav>
+
+      <a class="btn btn--primary btn--sm nav__cta" href="#booking-form" data-magnetic>
+        <span>Book<span class="nav__cta-more"> Appointment</span></span>
+        <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span class="visually-hidden">Open menu</span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="menu" id="mobile-menu" data-menu hidden>
+    <nav class="menu__inner container" aria-label="Mobile">
+      <ul class="menu__list">
+        <li><a href="#top"><span class="menu__num">01</span>Home</a></li>
+        <li><a href="#about"><span class="menu__num">02</span>About</a></li>
+        <li><a href="#services"><span class="menu__num">03</span>Services</a></li>
+        <li><a href="#styles"><span class="menu__num">04</span>Styles</a></li>
+        <li><a href="#gallery"><span class="menu__num">05</span>Gallery</a></li>
+        <li><a href="#reviews"><span class="menu__num">06</span>Reviews</a></li>
+        <li><a href="#contact"><span class="menu__num">07</span>Contact</a></li>
+      </ul>
+      <div class="menu__foot">
+        <a class="btn btn--primary" href="#booking-form">
+          <span>Book Appointment</span>
+          <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+        <p class="menu__tagline">Sharp Cuts. Clean Style. Confidence.</p>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__inner container">
+        <div class="hero__content">
+          <p class="eyebrow" data-hero="eyebrow">Premium Men's Grooming</p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="line"><span class="line__inner" data-hero="line">Your Style.</span></span>
+            <span class="line"><span class="line__inner" data-hero="line">Your <em>Confidence.</em></span></span>
+            <span class="line"><span class="line__inner" data-hero="line">Your Salon.</span></span>
+          </h1>
+          <p class="hero__lead" data-hero="lead">Modern cuts, classic grooming and personalised styling designed to keep you looking your best.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#booking-form" data-hero="action" data-magnetic>
+              <span>Book Appointment</span>
+              <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#services" data-hero="action">
+              <span>Explore Services</span>
+              <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
+          <a class="hero__scroll" href="#about" data-hero="fade" aria-label="Scroll to next section">
+            <span class="hero__scroll-line" aria-hidden="true"></span>
+            <span>Scroll</span>
+          </a>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__frame" aria-hidden="true" data-hero="frame"></div>
+          <figure class="hero__media" data-hero="media">
+            <img data-img="1593702295094-aea22597af65" width="880" height="1100" data-crop="center"
+                 data-sizes="(min-width: 1024px) 44vw, 92vw"
+                 alt="Barber finishing a client's haircut at the salon chair"
+                 fetchpriority="high" decoding="async" data-parallax-img>
+          </figure>
+          <p class="hero__vertical" aria-hidden="true" data-hero="fade">Hair &mdash; Beard &mdash; Styling</p>
+          <!-- Rotating seal: turns with the page scroll (static with reduced motion) -->
+          <div class="hero__seal" aria-hidden="true" data-hero="card">
+            <svg class="hero__seal-ring" viewBox="0 0 120 120" data-seal>
+              <defs><path id="seal-path" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
+              <text><textPath href="#seal-path" textLength="284">Sanby Salon &#183; Men's Grooming &#183;&#160;</textPath></text>
+            </svg>
+            <svg class="hero__seal-icon" viewBox="0 0 120 60">
+              <path d="M32 37 58 31.5M32 23 58 28.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="24" cy="41" r="9" fill="none" stroke="currentColor" stroke-width="3"/>
+              <circle cx="24" cy="19" r="9" fill="none" stroke="currentColor" stroke-width="3"/>
+              <path d="M56 31.6 116 29.2 111 32.6ZM56 28.4 116 30.8 111 27.4Z" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============
+         Decorative service ribbon; drifts with the direction and speed of the page scroll. -->
+    <div class="marquee" aria-hidden="true" data-marquee>
+      <div class="marquee__track" data-marquee-track>
+        <p class="marquee__group"><span>Haircut</span><i></i><span><em>Beard Styling</em></span><i></i><span>Hair + Beard</span><i></i><span><em>Hair Styling</em></span><i></i><span>Hair Wash</span><i></i><span><em>Hair Colour</em></span><i></i></p>
+        <p class="marquee__group"><span>Haircut</span><i></i><span><em>Beard Styling</em></span><i></i><span>Hair + Beard</span><i></i><span><em>Hair Styling</em></span><i></i><span>Hair Wash</span><i></i><span><em>Hair Colour</em></span><i></i></p>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <div class="about__media">
+          <figure class="about__img about__img--main" data-reveal="mask">
+            <img data-img="1585747860715-2ba37e788b70" width="720" height="900"
+                 data-sizes="(min-width: 1024px) 38vw, 88vw"
+                 alt="Warmly lit barbershop interior with leather barber chairs and mirrors"
+                 loading="lazy" decoding="async" data-parallax-img>
+          </figure>
+          <figure class="about__img about__img--detail" data-reveal="mask" data-delay="0.2">
+            <img data-img="1512690459411-b9245aed614b" width="480" height="560"
+                 data-sizes="(min-width: 1024px) 18vw, 44vw" data-max="1080"
+                 alt="Classic leather barber chair"
+                 loading="lazy" decoding="async">
+          </figure>
+          <p class="about__caption" aria-hidden="true">Sanby Salon &mdash; Grooming Studio</p>
+        </div>
+
+        <div class="about__content">
+          <p class="eyebrow" data-reveal>About Sanby</p>
+          <h2 class="h2" id="about-title" data-split>More Than a Haircut. <em>It's Your Style.</em></h2>
+          <div class="about__text" data-reveal>
+            <p class="about__lede">Sanby Salon is a grooming studio built around one idea: every man deserves a cut that fits him. Not a trend copied from a screen, but a style shaped around your face, your hair and the way you live.</p>
+            <p>We combine modern techniques with classic barbering discipline &mdash; careful consultation, precise work and a finish that still looks right a week later.</p>
+          </div>
+
+          <!-- REPLACE: confirm these figures with the salon before launch. -->
+          <ul class="stats" aria-label="Sanby Salon at a glance" data-stats data-reveal-group>
+            <li class="stats__item" data-reveal>
+              <p class="stats__value"><span data-count="5">5</span><span class="stats__suffix">+</span></p>
+              <p class="stats__label">Years experience</p>
+            </li>
+            <li class="stats__item" data-reveal>
+              <p class="stats__value"><span data-count="1000">1000</span><span class="stats__suffix">+</span></p>
+              <p class="stats__label">Happy clients</p>
+            </li>
+            <li class="stats__item" data-reveal>
+              <p class="stats__value"><span data-count="4.9" data-decimals="1">4.9</span><svg class="stats__star" aria-hidden="true"><use href="#i-star"/></svg></p>
+              <p class="stats__label">Customer rating</p>
+            </li>
+          </ul>
+          <a class="link-arrow" href="#services" data-reveal>
+            <span>See our services</span>
+            <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============
+         Prices intentionally omitted — add them to each .service when the salon supplies a price list. -->
+    <section class="services section section--alt" id="services" aria-labelledby="services-title">
+      <div class="container services__grid">
+        <div class="services__intro">
+          <p class="eyebrow" data-reveal>Services</p>
+          <h2 class="h2" id="services-title" data-split>Services Designed <em>for You.</em></h2>
+          <p class="services__lead" data-reveal>From a quick clean-up to a complete restyle, every service begins with a conversation about what you want &mdash; and ends with a finish you'll be proud of.</p>
+          <a class="btn btn--primary" href="#booking-form" data-reveal data-magnetic>
+            <span>Book a Service</span>
+            <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+
+        <ol class="services__list" data-services data-reveal-group>
+          <li class="service" data-reveal>
+            <a class="service__link" href="#booking-form" data-service-img="0">
+              <span class="service__num">01</span>
+              <div class="service__body">
+                <h3 class="service__title">Haircut</h3>
+                <span class="service__desc">Modern and classic haircuts customised for your face shape and style.</span>
+                <!--site:service-haircut--><!--/site:service-haircut-->
+              </div>
+              <span class="service__thumb" aria-hidden="true">
+                <img data-img="1541533848490-bc8115cd6522" width="320" height="400" data-sizes="160px" data-max="768" alt="" loading="lazy" decoding="async">
+              </span>
+              <span class="service__arrow" aria-hidden="true"><svg><use href="#i-arrow-up-right"/></svg></span>
+            </a>
+          </li>
+          <li class="service" data-reveal>
+            <a class="service__link" href="#booking-form" data-service-img="1">
+              <span class="service__num">02</span>
+              <div class="service__body">
+                <h3 class="service__title">Beard Styling</h3>
+                <span class="service__desc">Clean shaping, trimming and detailing for a sharp finish.</span>
+                <!--site:service-beard-styling--><!--/site:service-beard-styling-->
+              </div>
+              <span class="service__thumb" aria-hidden="true">
+                <img data-img="1596728325488-58c87691e9af" width="320" height="400" data-sizes="160px" data-max="768" alt="" loading="lazy" decoding="async">
+              </span>
+              <span class="service__arrow" aria-hidden="true"><svg><use href="#i-arrow-up-right"/></svg></span>
+            </a>
+          </li>
+          <li class="service" data-reveal>
+            <a class="service__link" href="#booking-form" data-service-img="2">
+              <span class="service__num">03</span>
+              <div class="service__body">
+                <h3 class="service__title">Hair + Beard</h3>
+                <span class="service__desc">The complete grooming package for a polished, put-together look.</span>
+                <!--site:service-hair-beard--><!--/site:service-hair-beard-->
+              </div>
+              <span class="service__thumb" aria-hidden="true">
+                <img data-img="1622287162716-f311baa1a2b8" width="320" height="400" data-sizes="160px" data-max="768" alt="" loading="lazy" decoding="async">
+              </span>
+              <span class="service__arrow" aria-hidden="true"><svg><use href="#i-arrow-up-right"/></svg></span>
+            </a>
+          </li>
+          <li class="service" data-reveal>
+            <a class="service__link" href="#booking-form" data-service-img="3">
+              <span class="service__num">04</span>
+              <div class="service__body">
+                <h3 class="service__title">Hair Styling</h3>
+                <span class="service__desc">Professional styling for everyday confidence or special occasions.</span>
+                <!--site:service-hair-styling--><!--/site:service-hair-styling-->
+              </div>
+              <span class="service__thumb" aria-hidden="true">
+                <img data-img="1605497788044-5a32c7078486" width="320" height="400" data-sizes="160px" data-max="768" alt="" loading="lazy" decoding="async">
+              </span>
+              <span class="service__arrow" aria-hidden="true"><svg><use href="#i-arrow-up-right"/></svg></span>
+            </a>
+          </li>
+          <li class="service" data-reveal>
+            <a class="service__link" href="#booking-form" data-service-img="4">
+              <span class="service__num">05</span>
+              <div class="service__body">
+                <h3 class="service__title">Hair Wash</h3>
+                <span class="service__desc">A refreshing wash and scalp cleanse to reset and revive.</span>
+                <!--site:service-hair-wash--><!--/site:service-hair-wash-->
+              </div>
+              <span class="service__thumb" aria-hidden="true">
+                <img data-img="1587909209111-5097ee578ec3" width="320" height="400" data-sizes="160px" data-max="768" alt="" loading="lazy" decoding="async">
+              </span>
+              <span class="service__arrow" aria-hidden="true"><svg><use href="#i-arrow-up-right"/></svg></span>
+            </a>
+          </li>
+          <li class="service" data-reveal>
+            <a class="service__link" href="#booking-form" data-service-img="5">
+              <span class="service__num">06</span>
+              <div class="service__body">
+                <h3 class="service__title">Hair Colour</h3>
+                <span class="service__desc">Professional men's hair colouring and natural-looking grey coverage.</span>
+                <!--site:service-hair-colour--><!--/site:service-hair-colour-->
+              </div>
+              <span class="service__thumb" aria-hidden="true">
+                <img data-img="1622286342621-4bd786c2447c" width="320" height="400" data-sizes="160px" data-max="768" alt="" loading="lazy" decoding="async">
+              </span>
+              <span class="service__arrow" aria-hidden="true"><svg><use href="#i-arrow-up-right"/></svg></span>
+            </a>
+          </li>
+        </ol>
+      </div>
+      <!-- Desktop cursor-follow preview; populated from the .service__thumb images -->
+      <div class="service-preview" data-service-preview aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ STYLES ============ -->
+    <section class="styles section" id="styles" aria-labelledby="styles-title">
+      <div class="container styles__head">
+        <div>
+          <p class="eyebrow" data-reveal>Trending Styles</p>
+          <h2 class="h2" id="styles-title" data-split>Find Your <em>Next Look.</em></h2>
+        </div>
+        <div class="styles__controls" data-reveal>
+          <p class="styles__hint"><svg aria-hidden="true"><use href="#i-drag"/></svg>Drag to explore</p>
+          <div class="icon-btns">
+            <button class="icon-btn" type="button" data-scroller-prev="styles" aria-label="Previous styles"><svg aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+            <button class="icon-btn" type="button" data-scroller-next="styles" aria-label="Next styles"><svg aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="styles__track scroller" data-scroller="styles" data-draggable data-cursor="Drag" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Trending hairstyles">
+        <ul class="styles__list" data-reveal-group>
+          <li class="style-card" data-reveal>
+            <button class="style-card__btn" type="button" data-lightbox-item data-lightbox-group="styles" aria-haspopup="dialog" data-caption="Textured Crop">
+              <span class="style-card__img">
+                <img data-img="1622286342621-4bd786c2447c" width="600" height="800" data-sizes="(min-width: 1024px) 26vw, (min-width: 768px) 40vw, 76vw" data-max="1440" alt="Textured crop haircut with a clean taper" loading="lazy" decoding="async" draggable="false">
+              </span>
+              <span class="style-card__overlay">
+                <span class="style-card__num">01</span>
+                <span class="style-card__name">Textured Crop</span>
+                <span class="style-card__cta">View Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              </span>
+            </button>
+          </li>
+          <li class="style-card" data-reveal>
+            <button class="style-card__btn" type="button" data-lightbox-item data-lightbox-group="styles" aria-haspopup="dialog" data-caption="Modern Fade">
+              <span class="style-card__img">
+                <img data-img="1647140655214-e4a2d914971f" width="600" height="800" data-sizes="(min-width: 1024px) 26vw, (min-width: 768px) 40vw, 76vw" data-max="1440" alt="Barber detailing a modern skin fade with scissors and comb" loading="lazy" decoding="async" draggable="false">
+              </span>
+              <span class="style-card__overlay">
+                <span class="style-card__num">02</span>
+                <span class="style-card__name">Modern Fade</span>
+                <span class="style-card__cta">View Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              </span>
+            </button>
+          </li>
+          <li class="style-card" data-reveal>
+            <button class="style-card__btn" type="button" data-lightbox-item data-lightbox-group="styles" aria-haspopup="dialog" data-caption="Pompadour">
+              <span class="style-card__img">
+                <img data-img="1622296089863-eb7fc530daa8" width="600" height="800" data-sizes="(min-width: 1024px) 26vw, (min-width: 768px) 40vw, 76vw" data-max="1440" alt="Voluminous pompadour styled with short sides" loading="lazy" decoding="async" draggable="false">
+              </span>
+              <span class="style-card__overlay">
+                <span class="style-card__num">03</span>
+                <span class="style-card__name">Pompadour</span>
+                <span class="style-card__cta">View Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              </span>
+            </button>
+          </li>
+          <li class="style-card" data-reveal>
+            <button class="style-card__btn" type="button" data-lightbox-item data-lightbox-group="styles" aria-haspopup="dialog" data-caption="Slick Back">
+              <span class="style-card__img">
+                <img data-img="1519085360753-af0119f7cbe7" width="600" height="800" data-sizes="(min-width: 1024px) 26vw, (min-width: 768px) 40vw, 76vw" data-max="1440" alt="Man in a tailored suit with slicked-back hair" loading="lazy" decoding="async" draggable="false">
+              </span>
+              <span class="style-card__overlay">
+                <span class="style-card__num">04</span>
+                <span class="style-card__name">Slick Back</span>
+                <span class="style-card__cta">View Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              </span>
+            </button>
+          </li>
+          <li class="style-card" data-reveal>
+            <button class="style-card__btn" type="button" data-lightbox-item data-lightbox-group="styles" aria-haspopup="dialog" data-caption="Classic Side Part">
+              <span class="style-card__img">
+                <img data-img="1506794778202-cad84cf45f1d" width="600" height="800" data-sizes="(min-width: 1024px) 26vw, (min-width: 768px) 40vw, 76vw" data-max="1440" alt="Portrait of a man with a classic side-parted haircut and trimmed beard" loading="lazy" decoding="async" draggable="false">
+              </span>
+              <span class="style-card__overlay">
+                <span class="style-card__num">05</span>
+                <span class="style-card__name">Classic Side Part</span>
+                <span class="style-card__cta">View Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              </span>
+            </button>
+          </li>
+          <li class="style-card" data-reveal>
+            <button class="style-card__btn" type="button" data-lightbox-item data-lightbox-group="styles" aria-haspopup="dialog" data-caption="Curly Fade">
+              <span class="style-card__img">
+                <img data-img="1567894340315-735d7c361db0" width="600" height="800" data-sizes="(min-width: 1024px) 26vw, (min-width: 768px) 40vw, 76vw" data-max="1440" alt="Barber shaping a curly top with a faded side" loading="lazy" decoding="async" draggable="false">
+              </span>
+              <span class="style-card__overlay">
+                <span class="style-card__num">06</span>
+                <span class="style-card__name">Curly Fade</span>
+                <span class="style-card__cta">View Style <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="progress" aria-hidden="true"><span class="progress__bar" data-scroller-progress="styles"></span></div>
+      </div>
+    </section>
+
+    <!-- ============ TRANSFORMATION ============
+         REPLACE: use a real before/after pair of the same client (with their permission). -->
+    <section class="transform section section--alt" id="transformation" aria-labelledby="transform-title">
+      <div class="container transform__grid">
+        <div class="transform__content">
+          <p class="eyebrow" data-reveal>Before &amp; After</p>
+          <h2 class="h2" id="transform-title" data-split>See the <em>Transformation.</em></h2>
+          <p data-reveal>A great cut changes more than your hair. Drag the handle to compare the starting point with the finished look.</p>
+          <ol class="transform__steps" data-reveal-group>
+            <li data-reveal><span>01</span>Consultation</li>
+            <li data-reveal><span>02</span>Precision cut</li>
+            <li data-reveal><span>03</span>Detail &amp; finish</li>
+          </ol>
+        </div>
+
+        <div class="transform__visual" data-reveal="mask">
+          <div class="compare" data-compare data-cursor-state="slide" style="--pos: 50%">
+            <img class="compare__img" data-img="1599351431202-1e0f0137899a" width="1000" height="760" data-crop="top"
+                 data-sizes="(min-width: 1024px) 56vw, 92vw" alt="After: freshly finished skin fade with sharp line-up" loading="lazy" decoding="async" draggable="false">
+            <div class="compare__before">
+              <img class="compare__img" data-img="1493256338651-d82f7acb2b38" width="1000" height="760"
+                   data-sizes="(min-width: 1024px) 56vw, 92vw" alt="Before: haircut in progress with clippers" loading="lazy" decoding="async" draggable="false">
+            </div>
+            <span class="compare__label compare__label--before" aria-hidden="true">Before</span>
+            <span class="compare__label compare__label--after" aria-hidden="true">After</span>
+            <div class="compare__handle" role="slider" tabindex="0" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% before" data-compare-handle>
+              <span class="compare__knob" aria-hidden="true"><svg><use href="#i-drag"/></svg></span>
+            </div>
+          </div>
+          <p class="note">Sample imagery &mdash; to be replaced with Sanby Salon client transformations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE ============ -->
+    <section class="why section" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="why__head">
+          <p class="eyebrow" data-reveal>Why Sanby</p>
+          <h2 class="h2" id="why-title" data-split>Details that make <em>the difference.</em></h2>
+          <p class="why__lead" data-reveal>Good grooming is the sum of small things done properly. Here's what you can expect every time you sit in our chair.</p>
+        </div>
+        <ol class="why__list" data-reveal-group>
+          <li class="why__item" data-reveal>
+            <span class="why__top"><span class="why__num">01</span><svg class="why__icon" aria-hidden="true"><use href="#i-scissors"/></svg></span>
+            <h3 class="why__title">Experienced Grooming</h3>
+            <p>Skilled hands trained in both classic barbering and modern technique.</p>
+          </li>
+          <li class="why__item" data-reveal>
+            <span class="why__top"><span class="why__num">02</span><svg class="why__icon" aria-hidden="true"><use href="#i-person"/></svg></span>
+            <h3 class="why__title">Personal Attention</h3>
+            <p>Unhurried appointments that start with listening, not clippers.</p>
+          </li>
+          <li class="why__item" data-reveal>
+            <span class="why__top"><span class="why__num">03</span><svg class="why__icon" aria-hidden="true"><use href="#i-comb"/></svg></span>
+            <h3 class="why__title">Modern Hairstyles</h3>
+            <p>Current cuts and finishes, adapted to suit you rather than a photo.</p>
+          </li>
+          <li class="why__item" data-reveal>
+            <span class="why__top"><span class="why__num">04</span><svg class="why__icon" aria-hidden="true"><use href="#i-drop"/></svg></span>
+            <h3 class="why__title">Clean &amp; Hygienic</h3>
+            <p>Sanitised tools, fresh towels and a spotless station for every client.</p>
+          </li>
+          <li class="why__item" data-reveal>
+            <span class="why__top"><span class="why__num">05</span><svg class="why__icon" aria-hidden="true"><use href="#i-bottle"/></svg></span>
+            <h3 class="why__title">Quality Products</h3>
+            <p>Professional-grade products chosen for your hair and skin.</p>
+          </li>
+          <li class="why__item" data-reveal>
+            <span class="why__top"><span class="why__num">06</span><svg class="why__icon" aria-hidden="true"><use href="#i-cup"/></svg></span>
+            <h3 class="why__title">Relaxing Experience</h3>
+            <p>A calm, comfortable space to switch off while we take care of the rest.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============
+         REPLACE: swap sample photos for the salon's own work. -->
+    <section class="gallery section" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="gallery__head">
+          <div>
+            <p class="eyebrow" data-reveal>Gallery</p>
+            <h2 class="h2" id="gallery-title" data-split>Fresh Cuts. <em>Real Style.</em></h2>
+          </div>
+          <p class="gallery__lead" data-reveal>A look inside the chair &mdash; fades, beard work, finishing touches and the space where it all happens.</p>
+        </div>
+
+        <ul class="gallery__grid" data-cursor="View">
+          <li class="gallery__item gallery__item--a" data-reveal="mask">
+            <button type="button" class="gallery__btn" data-lightbox-item data-lightbox-group="gallery" aria-haspopup="dialog" data-caption="Hot Towel Shave">
+              <img data-img="1503951914875-452162b0f3f1" width="800" height="1000" data-sizes="(min-width: 1024px) 34vw, (min-width: 768px) 48vw, 92vw" alt="Client relaxing during a straight-razor shave" loading="lazy" decoding="async">
+              <span class="gallery__overlay"><span class="gallery__cat">Beard</span><span class="gallery__name">Hot Towel Shave</span></span>
+            </button>
+          </li>
+          <li class="gallery__item gallery__item--b" data-reveal="mask">
+            <button type="button" class="gallery__btn" data-lightbox-item data-lightbox-group="gallery" aria-haspopup="dialog" data-caption="Skin Fade">
+              <img data-img="1599351431202-1e0f0137899a" width="800" height="600" data-sizes="(min-width: 1024px) 40vw, (min-width: 768px) 48vw, 92vw" alt="Detailed skin fade with a sharp razor line" loading="lazy" decoding="async">
+              <span class="gallery__overlay"><span class="gallery__cat">Fades</span><span class="gallery__name">Skin Fade</span></span>
+            </button>
+          </li>
+          <li class="gallery__item gallery__item--c" data-reveal="mask">
+            <button type="button" class="gallery__btn" data-lightbox-item data-lightbox-group="gallery" aria-haspopup="dialog" data-caption="The Studio">
+              <img data-img="1592647420148-bfcc177e2117" width="800" height="1000" data-sizes="(min-width: 1024px) 22vw, (min-width: 768px) 48vw, 92vw" alt="Barbershop interior with a red leather barber chair" loading="lazy" decoding="async">
+              <span class="gallery__overlay"><span class="gallery__cat">Salon</span><span class="gallery__name">The Studio</span></span>
+            </button>
+          </li>
+          <li class="gallery__item gallery__item--d" data-reveal="mask">
+            <button type="button" class="gallery__btn" data-lightbox-item data-lightbox-group="gallery" aria-haspopup="dialog" data-caption="Beard Detailing">
+              <img data-img="1517832606299-7ae9b720a186" width="800" height="600" data-sizes="(min-width: 1024px) 30vw, (min-width: 768px) 48vw, 92vw" alt="Black and white photo of a beard being trimmed with scissors" loading="lazy" decoding="async">
+              <span class="gallery__overlay"><span class="gallery__cat">Beard</span><span class="gallery__name">Beard Detailing</span></span>
+            </button>
+          </li>
+          <li class="gallery__item gallery__item--e" data-reveal="mask">
+            <button type="button" class="gallery__btn" data-lightbox-item data-lightbox-group="gallery" aria-haspopup="dialog" data-caption="Clipper Work">
+              <img data-img="1622287162716-f311baa1a2b8" width="800" height="1000" data-sizes="(min-width: 1024px) 30vw, (min-width: 768px) 48vw, 92vw" alt="Barber shaping a client's hair with clippers" loading="lazy" decoding="async">
+              <span class="gallery__overlay"><span class="gallery__cat">Process</span><span class="gallery__name">Clipper Work</span></span>
+            </button>
+          </li>
+          <li class="gallery__item gallery__item--f" data-reveal="mask">
+            <button type="button" class="gallery__btn" data-lightbox-item data-lightbox-group="gallery" aria-haspopup="dialog" data-caption="Tools of the Trade">
+              <img data-img="1621605815971-fbc98d665033" width="800" height="600" data-sizes="(min-width: 1024px) 40vw, (min-width: 768px) 48vw, 92vw" alt="Barber tools laid out: clippers, scissors, comb and grooming products" loading="lazy" decoding="async">
+              <span class="gallery__overlay"><span class="gallery__cat">Process</span><span class="gallery__name">Tools of the Trade</span></span>
+            </button>
+          </li>
+          <li class="gallery__item gallery__item--g" data-reveal="mask">
+            <button type="button" class="gallery__btn" data-lightbox-item data-lightbox-group="gallery" aria-haspopup="dialog" data-caption="Clean Lather">
+              <img data-img="1532710093739-9470acff878f" width="800" height="600" data-sizes="(min-width: 1024px) 30vw, (min-width: 768px) 48vw, 92vw" alt="Shaving brush applying lather to a client's beard line" loading="lazy" decoding="async">
+              <span class="gallery__overlay"><span class="gallery__cat">Beard</span><span class="gallery__name">Clean Lather</span></span>
+            </button>
+          </li>
+          <li class="gallery__item gallery__item--h" data-reveal="mask">
+            <button type="button" class="gallery__btn" data-lightbox-item data-lightbox-group="gallery" aria-haspopup="dialog" data-caption="Finishing Touch">
+              <img data-img="1605497788044-5a32c7078486" width="800" height="600" data-sizes="(min-width: 1024px) 30vw, (min-width: 768px) 48vw, 92vw" alt="Barber blow-drying a client's hair for a finished style" loading="lazy" decoding="async">
+              <span class="gallery__overlay"><span class="gallery__cat">Styling</span><span class="gallery__name">Finishing Touch</span></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============
+         REPLACE: these are sample reviews. Swap in real, verified client reviews (with permission) before launch. -->
+    <section class="reviews section section--alt" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="reviews__head">
+          <div>
+            <p class="eyebrow" data-reveal>Reviews</p>
+            <h2 class="h2" id="reviews-title" data-split>What Our <em>Clients Say.</em></h2>
+            <p class="reviews__notice" data-reveal><span class="placeholder placeholder--sm">Sample reviews</span> Shown for layout only &mdash; to be replaced with verified client reviews.</p>
+          </div>
+          <div class="icon-btns" data-reveal>
+            <button class="icon-btn" type="button" data-scroller-prev="reviews" aria-label="Previous review"><svg aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+            <button class="icon-btn" type="button" data-scroller-next="reviews" aria-label="Next review"><svg aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews__track scroller" data-scroller="reviews" data-draggable tabindex="0" role="region" aria-roledescription="carousel" aria-label="Client reviews">
+        <ul class="reviews__list" data-reveal-group>
+          <li class="review" data-reveal>
+            <p class="review__stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></p>
+            <blockquote class="review__quote"><p>&ldquo;Great haircut and excellent service. The attention to detail was exactly what I wanted.&rdquo;</p></blockquote>
+            <p class="review__author">&mdash; Client Name <span>Haircut</span></p>
+          </li>
+          <li class="review" data-reveal>
+            <p class="review__stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></p>
+            <blockquote class="review__quote"><p>&ldquo;They actually listened to what I wanted. The fade was clean and the beard shaping made a real difference.&rdquo;</p></blockquote>
+            <p class="review__author">&mdash; Client Name <span>Hair + Beard</span></p>
+          </li>
+          <li class="review" data-reveal>
+            <p class="review__stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></p>
+            <blockquote class="review__quote"><p>&ldquo;Relaxed atmosphere, spotless station and a haircut that still looked sharp two weeks later.&rdquo;</p></blockquote>
+            <p class="review__author">&mdash; Client Name <span>Haircut</span></p>
+          </li>
+          <li class="review" data-reveal>
+            <p class="review__stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></p>
+            <blockquote class="review__quote"><p>&ldquo;Came in for a quick trim before an event and left looking better than I expected. Will be back.&rdquo;</p></blockquote>
+            <p class="review__author">&mdash; Client Name <span>Hair Styling</span></p>
+          </li>
+          <li class="review" data-reveal>
+            <p class="review__stars" role="img" aria-label="5 out of 5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></p>
+            <blockquote class="review__quote"><p>&ldquo;The grey coverage looks completely natural. Nobody could tell &mdash; which is exactly the point.&rdquo;</p></blockquote>
+            <p class="review__author">&mdash; Client Name <span>Hair Colour</span></p>
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="progress" aria-hidden="true"><span class="progress__bar" data-scroller-progress="reviews"></span></div>
+      </div>
+    </section>
+
+    <!-- ============ BOOKING CTA ============ -->
+    <section class="cta" id="book" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta__panel" data-reveal="panel">
+          <figure class="cta__media" aria-hidden="true">
+            <img data-img="1592647420148-bfcc177e2117" width="1600" height="900" data-sizes="(min-width: 1024px) 90vw, 100vw" alt="" loading="lazy" decoding="async" data-parallax-img>
+          </figure>
+          <div class="cta__content">
+            <p class="eyebrow eyebrow--light" data-reveal>Book Your Chair</p>
+            <h2 class="cta__title" id="cta-title" data-split>Ready for a <em>Fresh Look?</em></h2>
+            <p class="cta__text" data-reveal>Book your appointment at Sanby Salon and leave looking sharper and more confident.</p>
+            <div class="cta__actions" data-reveal>
+              <a class="btn btn--light" href="#booking-form" data-magnetic>
+                <span>Book Appointment</span>
+                <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+              </a>
+              <!-- Becomes a tel: link once `phone` is set in site.config.js -->
+              <a class="btn btn--outline-light" href="%SITE_CALL_HREF%">
+                <svg class="btn__icon btn__icon--lead" aria-hidden="true"><use href="#i-phone"/></svg>
+                <span>Call Salon</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============
+         Details come from site.config.js. Anything not yet confirmed shows as a .placeholder. -->
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__grid">
+        <div class="contact__info">
+          <p class="eyebrow" data-reveal>Contact</p>
+          <h2 class="h2" id="contact-title" data-split>Visit <em>Sanby Salon.</em></h2>
+          <p class="contact__lead" data-reveal>Drop in, call ahead or send us a booking request &mdash; we'll make time for you.</p>
+
+          <dl class="details" data-reveal-group>
+            <div class="details__row" data-reveal>
+              <dt><svg aria-hidden="true"><use href="#i-pin"/></svg>Address</dt>
+              <dd><!--site:address--><span class="placeholder">Salon address to be added</span><!--/site:address--></dd>
+            </div>
+            <div class="details__row" data-reveal>
+              <dt><svg aria-hidden="true"><use href="#i-phone"/></svg>Phone</dt>
+              <dd><!--site:phone--><span class="placeholder">Phone number to be added</span><!--/site:phone--></dd>
+            </div>
+            <div class="details__row" data-reveal>
+              <dt><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</dt>
+              <dd><!--site:whatsapp--><span class="placeholder">WhatsApp number to be added</span><!--/site:whatsapp--></dd>
+            </div>
+            <div class="details__row" data-reveal>
+              <dt><svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</dt>
+              <dd><!--site:instagram--><span class="placeholder">@handle to be added</span><!--/site:instagram--></dd>
+            </div>
+            <div class="details__row" data-reveal>
+              <dt><svg aria-hidden="true"><use href="#i-clock"/></svg>Opening Hours</dt>
+              <dd>
+                <table class="hours">
+                  <caption class="visually-hidden">Opening hours</caption>
+                  <tbody>
+                    <!--site:hours--><tr><th scope="row">Mon &ndash; Sat</th><td><span class="placeholder">Hours to be added</span></td></tr><!--/site:hours-->
+                  </tbody>
+                </table>
+              </dd>
+            </div>
+          </dl>
+          <!-- Large tap targets for Call / WhatsApp / Directions; appear once those details are set in site.config.js -->
+          <!--site:contact-actions--><!--/site:contact-actions-->
+        </div>
+
+        <div class="contact__form-wrap" data-reveal="fade">
+          <form class="form" id="booking-form" novalidate data-booking-form aria-labelledby="form-title">
+            <h3 class="form__title" id="form-title">Request an Appointment</h3>
+            <p class="form__intro">Tell us what you're after and when suits you. We'll confirm your slot.</p>
+
+            <div class="field">
+              <input class="field__input" id="f-name" name="name" type="text" autocomplete="name" required placeholder=" ">
+              <label class="field__label" for="f-name">Your name</label>
+              <p class="field__error" id="f-name-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <input class="field__input" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder=" ">
+              <label class="field__label" for="f-phone">Phone number</label>
+              <p class="field__error" id="f-phone-err" aria-live="polite"></p>
+            </div>
+            <div class="form__row">
+              <div class="field field--select">
+                <select class="field__input" id="f-service" name="service" required>
+                  <option value="" selected disabled hidden></option>
+                  <option>Haircut</option>
+                  <option>Beard Styling</option>
+                  <option>Hair + Beard</option>
+                  <option>Hair Styling</option>
+                  <option>Hair Wash</option>
+                  <option>Hair Colour</option>
+                </select>
+                <label class="field__label" for="f-service">Service</label>
+                <p class="field__error" id="f-service-err" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <input class="field__input" id="f-date" name="date" type="date" required placeholder=" ">
+                <label class="field__label field__label--fixed" for="f-date">Preferred date</label>
+                <p class="field__error" id="f-date-err" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="field">
+              <textarea class="field__input" id="f-notes" name="notes" rows="3" placeholder=" "></textarea>
+              <label class="field__label" for="f-notes">Anything we should know? (optional)</label>
+            </div>
+            <button class="btn btn--primary btn--block form__submit" type="submit" data-form-submit>
+              <span data-form-submit-label>Send Request</span>
+              <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+            <div class="form__status" role="status" aria-live="polite" data-form-status></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Shows the embedded map once `map.embed` is set in site.config.js -->
+      <div class="container">
+        <div class="map" data-reveal>
+          <!--site:map--><div class="map__inner">
+            <svg aria-hidden="true"><use href="#i-pin"/></svg>
+            <p><strong>Map coming soon</strong><span>The location map will appear here once the salon address is confirmed.</span></p>
+          </div><!--/site:map-->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="footer__logo" href="#top">Sanby Salon</a>
+          <p>Modern grooming for the modern man.</p>
+        </div>
+        <nav class="footer__col" aria-label="Footer">
+          <h2 class="footer__heading">Navigate</h2>
+          <ul>
+            <li><a class="link" href="#top">Home</a></li>
+            <li><a class="link" href="#about">About</a></li>
+            <li><a class="link" href="#services">Services</a></li>
+            <li><a class="link" href="#styles">Styles</a></li>
+            <li><a class="link" href="#gallery">Gallery</a></li>
+            <li><a class="link" href="#reviews">Reviews</a></li>
+            <li><a class="link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col">
+          <h2 class="footer__heading">Social</h2>
+          <!-- Links come from site.config.js (instagram, facebook) -->
+          <ul>
+            <li><!--site:footer-instagram--><span class="footer__muted"><svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram <em class="placeholder placeholder--sm">link to be added</em></span><!--/site:footer-instagram--></li>
+            <li><!--site:footer-facebook--><span class="footer__muted"><svg aria-hidden="true"><use href="#i-facebook"/></svg>Facebook <em class="placeholder placeholder--sm">link to be added</em></span><!--/site:footer-facebook--></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h2 class="footer__heading">Contact</h2>
+          <ul>
+            <li><!--site:footer-address--><span class="placeholder placeholder--sm">Address to be added</span><!--/site:footer-address--></li>
+            <li><!--site:footer-phone--><span class="placeholder placeholder--sm">Phone to be added</span><!--/site:footer-phone--></li>
+            <li><a class="link" href="#booking-form">Request an appointment</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; SANBY SALON. All Rights Reserved.</p>
+        <a class="link" href="#top">Back to top <svg aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+      </div>
+      <div class="footer__mark" data-mark aria-hidden="true">
+        <p class="footer__word" data-wordmark><span class="footer__letter" data-char="S">S</span><span class="footer__letter" data-char="a">a</span><span class="footer__letter" data-char="n">n</span><span class="footer__letter" data-char="b">b</span><span class="footer__letter" data-char="y">y</span></p>
+        <span class="footer__cut" data-cut></span>
+        <svg class="footer__tool footer__scissors" data-scissors viewBox="0 0 120 60">
+          <g class="blade" data-blade="a">
+            <path d="M32 37 58 31.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="24" cy="41" r="9" fill="none" stroke="currentColor" stroke-width="3"/>
+            <path d="M56 31.6 116 29.2 111 32.6Z" fill="currentColor"/>
+          </g>
+          <g class="blade" data-blade="b">
+            <path d="M32 23 58 28.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="24" cy="19" r="9" fill="none" stroke="currentColor" stroke-width="3"/>
+            <path d="M56 28.4 116 30.8 111 27.4Z" fill="currentColor"/>
+          </g>
+          <circle cx="58" cy="30" r="2.6" fill="#c3a276"/>
+        </svg>
+        <svg class="footer__tool footer__comb" data-comb viewBox="0 0 200 44">
+          <rect x="0" y="0" width="200" height="11" rx="3" fill="currentColor"/>
+          <rect x="6" y="9" width="3.2" height="34" rx="1.6" fill="currentColor"/><rect x="14" y="9" width="3.2" height="34" rx="1.6" fill="currentColor"/><rect x="22" y="9" width="3.2" height="34" rx="1.6" fill="currentColor"/><rect x="30" y="9" width="3.2" height="34" rx="1.6" fill="currentColor"/><rect x="38" y="9" width="3.2" height="34" rx="1.6" fill="currentColor"/><rect x="46" y="9" width="3.2" height="34" rx="1.6" fill="currentColor"/><rect x="54" y="9" width="3.2" height="34" rx="1.6" fill="currentColor"/><rect x="62" y="9" width="3.2" height="34" rx="1.6" fill="currentColor"/><rect x="70" y="9" width="3.2" height="34" rx="1.6" fill="currentColor"/><rect x="78" y="9" width="3.2" height="34" rx="1.6" fill="currentColor"/><rect x="86" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="94" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="102" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="110" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="118" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="126" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="134" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="142" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="150" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="158" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="166" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="174" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="182" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/><rect x="190" y="9" width="3.2" height="26" rx="1.6" fill="currentColor"/>
+        </svg>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox (shared by gallery + styles) -->
+  <dialog class="lightbox" data-lightbox aria-label="Image viewer">
+    <div class="lightbox__stage">
+      <img class="lightbox__img" alt="" data-lightbox-img>
+    </div>
+    <p class="lightbox__caption" data-lightbox-caption></p>
+    <p class="lightbox__count" data-lightbox-count></p>
+    <button class="lightbox__btn lightbox__close" type="button" aria-label="Close image viewer" data-lightbox-close><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    <button class="lightbox__btn lightbox__prev" type="button" aria-label="Previous image" data-lightbox-prev><svg aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+    <button class="lightbox__btn lightbox__next" type="button" aria-label="Next image" data-lightbox-next><svg aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+  </dialog>
+
+  <!-- Floating back-to-top (appears after the first screen; ring shows scroll progress) -->
+  <a class="to-top" href="#top" data-to-top aria-label="Back to top">
+    <svg class="to-top__ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23"/><circle class="to-top__progress" cx="24" cy="24" r="23" pathLength="1"/></svg>
+    <svg class="to-top__icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+  </a>
+
+  <!-- Desktop cursor label -->
+  <div class="cursor" data-cursor-el aria-hidden="true"><div class="cursor__ring"><span data-cursor-text></span></div></div>
+</body>
+</html>
