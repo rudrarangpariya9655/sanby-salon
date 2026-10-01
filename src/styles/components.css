@@ -1,36 +1,36 @@
 /* ==========================================================================
-   Buttons
+   Buttons — square, tracked uppercase; the fill wipes up on hover
    ========================================================================== */
 .btn {
-  --btn-bg: var(--accent-strong);
-  --btn-fg: #fff;
-  --btn-border: var(--btn-bg);
-  --btn-hover-bg: var(--dark);
-  --btn-hover-fg: #fff;
+  --btn-bg: var(--brass);
+  --btn-fg: var(--ink);
+  --btn-border: var(--brass);
+  --btn-hover-bg: var(--fg);
+  --btn-hover-fg: var(--bg);
+  --btn-hover-border: var(--fg);
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  min-height: 3.25rem;
-  padding: 0.9rem 1.6rem;
+  gap: 0.9rem;
+  min-height: 3.5rem;
+  padding: 0 1.9rem;
   border: 1px solid var(--btn-border);
-  border-radius: var(--radius);
   background: var(--btn-bg);
   color: var(--btn-fg);
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  line-height: 1.2;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   white-space: nowrap;
   isolation: isolate;
   overflow: hidden;
   transition:
-    color var(--dur) var(--ease-out),
-    border-color var(--dur) var(--ease-out),
-    scale var(--dur-fast) var(--ease-out);
+    color var(--dur-ui) var(--ease-out),
+    border-color var(--dur-ui) var(--ease-out),
+    scale var(--dur-micro) var(--ease-out);
 }
-/* Fill wipes up from the bottom on hover */
 .btn::before {
   content: '';
   position: absolute;
@@ -39,19 +39,15 @@
   background: var(--btn-hover-bg);
   transform: scaleY(0);
   transform-origin: bottom;
-  transition: transform var(--dur) var(--ease-out);
+  transition: transform var(--dur-ui) var(--ease-out);
 }
-.btn__icon {
-  width: 1.1rem;
-  height: 1.1rem;
-  flex: none;
-}
+.btn__icon { width: 1.15rem; height: 1.15rem; flex: none; }
 @media (hover: hover) {
-  .btn:hover { color: var(--btn-hover-fg); border-color: var(--btn-hover-bg); }
+  .btn:hover { color: var(--btn-hover-fg); border-color: var(--btn-hover-border); }
   .btn:hover::before { transform: scaleY(1); }
   /* The arrow slips out to the right and returns from the left — once per hover. */
-  .btn:hover .btn__icon:not(.btn__icon--lead) { animation: arrow-through 560ms var(--ease-out); }
-  .btn:hover .btn__icon--lead { animation: icon-nudge 560ms var(--ease-out); }
+  .btn:hover .btn__icon:not(.btn__icon--lead) { animation: arrow-through 520ms var(--ease-out); }
+  .btn:hover .btn__icon--lead { animation: icon-nudge 520ms var(--ease-out); }
 }
 .btn:focus-visible { outline-offset: 4px; }
 /* `scale` (not transform) so it composes with the magnetic translate set by JS. */
@@ -59,8 +55,8 @@
 
 @keyframes arrow-through {
   0% { transform: translateX(0); opacity: 1; }
-  40% { transform: translateX(110%); opacity: 0; }
-  41% { transform: translateX(-110%); opacity: 0; }
+  40% { transform: translateX(120%); opacity: 0; }
+  41% { transform: translateX(-120%); opacity: 0; }
   100% { transform: translateX(0); opacity: 1; }
 }
 @keyframes icon-nudge {
@@ -68,12 +64,20 @@
   25% { transform: rotate(-12deg); }
   60% { transform: rotate(8deg); }
 }
+/* A patient nudge on the main booking arrow: a short move every few seconds, never a constant wiggle. */
+.btn__icon--nudge { animation: arrow-nudge 3.2s var(--ease-in-out) 1.5s infinite; }
+@keyframes arrow-nudge {
+  0%, 72%, 100% { transform: translateX(0); }
+  80% { transform: translateX(6px); }
+  88% { transform: translateX(0); }
+  94% { transform: translateX(3px); }
+}
 
 /* Loading state (booking form): a same-size spinner takes the arrow's place, so nothing shifts. */
 .btn__spinner {
   display: none;
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.15rem;
+  height: 1.15rem;
   flex: none;
   border: 1.5px solid currentColor;
   border-right-color: transparent;
@@ -85,28 +89,22 @@
 .btn:disabled:not([aria-busy='true']) { opacity: 0.5; cursor: not-allowed; }
 @keyframes spin { to { rotate: 1turn; } }
 
-.btn--sm { min-height: 2.75rem; padding: 0.6rem 1.15rem; font-size: 0.75rem; }
-.btn--block { width: 100%; }
-
 .btn--ghost {
   --btn-bg: transparent;
-  --btn-fg: var(--text);
-  --btn-border: var(--border);
-  --btn-hover-bg: var(--dark);
+  --btn-fg: var(--fg);
+  --btn-border: var(--line-strong);
 }
-.btn--light {
-  --btn-bg: var(--bg);
-  --btn-fg: var(--text);
-  --btn-hover-bg: var(--gold);
-  --btn-hover-fg: var(--text);
-}
-.btn--outline-light {
+.btn--outline {
   --btn-bg: transparent;
-  --btn-fg: var(--bg);
-  --btn-border: rgb(250 249 246 / 0.35);
-  --btn-hover-bg: var(--bg);
-  --btn-hover-fg: var(--text);
+  --btn-fg: var(--fg);
+  --btn-border: rgb(184 154 104 / 0.65);
+  --btn-hover-bg: var(--brass);
+  --btn-hover-fg: var(--ink);
+  --btn-hover-border: var(--brass);
 }
+.btn--sm { min-height: 2.75rem; padding: 0 1.25rem; gap: 0.7rem; font-size: 0.6875rem; }
+.btn--lg { min-height: 4rem; padding: 0 2.4rem; }
+.btn--block { width: 100%; }
 
 /* ==========================================================================
    Links
@@ -115,31 +113,32 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   background: linear-gradient(currentColor, currentColor) no-repeat 100% 100% / 0 1px;
-  transition: background-size var(--dur) var(--ease-out), color var(--dur-fast);
+  transition: background-size var(--dur-ui) var(--ease-out), color var(--dur-micro);
 }
-.link svg { width: 1em; height: 1em; }
+.link svg { width: 0.95em; height: 0.95em; flex: none; }
 @media (hover: hover) {
-  .link:hover { background-position: 0 100%; background-size: 100% 1px; color: var(--accent-ink); }
+  .link:hover { background-position: 0 100%; background-size: 100% 1px; color: var(--accent); }
 }
 
 .link-arrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.8125rem;
+  gap: 0.9rem;
+  min-height: 44px;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--line-strong);
+  font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  transition: border-color var(--dur) var(--ease-out), color var(--dur);
+  transition: border-color var(--dur-ui) var(--ease-out), color var(--dur-ui);
 }
-.link-arrow svg { width: 1.1rem; height: 1.1rem; color: var(--accent); transition: transform var(--dur) var(--ease-out); }
+.link-arrow svg { width: 1.1rem; height: 1.1rem; color: var(--accent); transition: translate var(--dur-ui) var(--ease-out); }
 @media (hover: hover) {
-  .link-arrow:hover { border-color: var(--accent); color: var(--accent-ink); }
-  .link-arrow:hover svg { transform: translateX(5px); }
+  .link-arrow:hover { border-color: var(--accent); }
+  .link-arrow:hover svg { translate: 6px 0; }
 }
 
 /* ==========================================================================
@@ -149,31 +148,30 @@
 .icon-btn {
   display: grid;
   place-items: center;
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  color: var(--text);
-  background: transparent;
-  transition: background-color var(--dur) var(--ease-out), color var(--dur), border-color var(--dur), opacity var(--dur), scale var(--dur-fast) var(--ease-out);
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 1px solid var(--line-strong);
+  color: var(--fg);
+  transition: background-color var(--dur-ui) var(--ease-out), color var(--dur-ui), border-color var(--dur-ui), opacity var(--dur-ui), scale var(--dur-micro) var(--ease-out);
 }
 .icon-btn svg { width: 1.15rem; height: 1.15rem; }
-.icon-btn:disabled { opacity: 0.35; cursor: default; }
+.icon-btn:disabled { opacity: 0.3; cursor: default; }
 .icon-btn:not(:disabled):active { scale: 0.92; }
 @media (hover: hover) {
-  .icon-btn:not(:disabled):hover { background: var(--dark); border-color: var(--dark); color: #fff; }
+  .icon-btn:not(:disabled):hover { background: var(--fg); border-color: var(--fg); color: var(--bg); }
 }
 
 .progress {
   position: relative;
+  flex: 1;
   height: 1px;
-  background: var(--border);
+  background: var(--line);
   overflow: hidden;
 }
 .progress__bar {
   position: absolute;
   inset: 0;
-  background: var(--text);
+  background: var(--accent);
   transform-origin: left;
   transform: scaleX(var(--progress, 0.15));
   transition: transform 150ms linear;
@@ -209,20 +207,28 @@
    ========================================================================== */
 .placeholder {
   display: inline-block;
-  padding: 0.1rem 0.55rem;
-  border: 1px dashed var(--accent);
-  border-radius: var(--radius);
-  background: rgb(154 116 72 / 0.06);
-  color: var(--accent-ink);
-  font-size: 0.875rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px dashed rgb(184 154 104 / 0.7);
+  background: rgb(184 154 104 / 0.06);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
   font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  text-transform: none;
 }
-.placeholder--sm { font-size: 0.75rem; padding: 0 0.4rem; }
+.placeholder--sm { font-size: 0.6875rem; padding: 0 0.45rem; }
+
+/* Rating stars */
+.stars { display: inline-flex; gap: 0.2rem; color: var(--brass); }
+.stars svg { width: 0.9rem; height: 0.9rem; }
 
 /* ==========================================================================
    Cursor (desktop, fine pointers only — the native cursor is never hidden)
-   A thin ring trails the pointer; it grows over links and buttons, stretches over the
-   before/after slider, and becomes a labelled disc ("Drag", "View") over [data-cursor] zones.
+   A small ring trails the pointer: it grows over links and buttons, stretches over the
+   before/after slider, and becomes a labelled brass disc ("View", "Book") over [data-cursor] zones.
    ========================================================================== */
 .cursor {
   position: fixed;
@@ -231,6 +237,7 @@
   z-index: 150;
   pointer-events: none;
   opacity: 0;
+  mix-blend-mode: difference;
   transition: opacity 250ms var(--ease-out);
 }
 .cursor.is-on { opacity: 1; }
@@ -238,32 +245,32 @@
   position: absolute;
   display: grid;
   place-items: center;
-  width: 84px;
-  height: 84px;
-  margin: -42px 0 0 -42px;
-  border: 1px solid var(--accent);
+  width: 88px;
+  height: 88px;
+  margin: -44px 0 0 -44px;
+  border: 1px solid #fff;
   border-radius: 50%;
-  color: var(--bg);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  color: var(--ink);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  scale: 0.36;
+  scale: 0.3;
   transition:
     scale 450ms var(--ease-out),
     background-color 300ms var(--ease-out),
     border-color 300ms var(--ease-out),
-    border-radius 450ms var(--ease-out),
     width 450ms var(--ease-out),
     margin 450ms var(--ease-out);
 }
 .cursor__ring span { opacity: 0; transition: opacity 200ms var(--ease-out); }
-.cursor.is-link .cursor__ring { scale: 0.62; background: rgb(154 116 72 / 0.08); }
-.cursor.is-slide .cursor__ring { width: 120px; margin-left: -60px; scale: 0.5; border-color: #fff; }
-.cursor.is-label .cursor__ring { scale: 1; background: var(--dark); border-color: var(--dark); }
+.cursor.is-link .cursor__ring { scale: 0.62; }
+.cursor.is-slide .cursor__ring { width: 128px; margin-left: -64px; scale: 0.5; }
+.cursor.is-label { mix-blend-mode: normal; }
+.cursor.is-label .cursor__ring { scale: 1; background: var(--brass); border-color: var(--brass); }
 .cursor.is-label .cursor__ring span { opacity: 1; transition-delay: 120ms; }
-.cursor.is-pressed .cursor__ring { scale: 0.3; }
-.cursor.is-label.is-pressed .cursor__ring { scale: 0.84; }
+.cursor.is-pressed .cursor__ring { scale: 0.24; }
+.cursor.is-label.is-pressed .cursor__ring { scale: 0.86; }
 .cursor.is-hidden { opacity: 0; }
 @media (hover: none), (pointer: coarse) { .cursor { display: none; } }
 
@@ -276,63 +283,74 @@
   max-width: none;
   max-height: none;
   margin: 0;
-  padding: clamp(3.5rem, 7vw, 5.5rem) clamp(1rem, 7vw, 6rem);
+  padding: clamp(4rem, 8vw, 6rem) clamp(1rem, 7vw, 7rem) clamp(1.25rem, 3vw, 2.25rem);
   border: 0;
-  background: rgb(250 249 246 / 0.97);
-  color: var(--text);
+  background: rgb(12 12 11 / 0.97);
+  color: var(--paper);
   overflow: hidden;
+  /* Horizontal swipes reach the swipe handler (lightbox.js) instead of being taken by the browser. */
+  touch-action: pan-y pinch-zoom;
 }
-.lightbox::backdrop { background: rgb(23 23 23 / 0.25); }
-.lightbox[open] { display: grid; grid-template-rows: 1fr auto; gap: 1rem; }
-.lightbox__stage { position: relative; display: grid; place-items: center; min-height: 0; }
+.lightbox::backdrop { background: rgb(0 0 0 / 0.5); }
+.lightbox[open] { display: grid; grid-template-rows: 1fr auto; gap: 1.25rem; }
+.lightbox__stage { position: relative; min-height: 0; }
 /* Thin spinner while the next image decodes (only if that takes a moment). */
 .lightbox__stage::after {
   content: '';
   position: absolute;
+  inset: 0;
+  margin: auto;
   width: 2rem;
   height: 2rem;
-  border: 1.5px solid var(--border-strong);
-  border-top-color: var(--accent);
+  border: 1px solid var(--line-strong);
+  border-top-color: var(--brass);
   border-radius: 50%;
   opacity: 0;
-  transition: opacity var(--dur) var(--ease-out);
+  transition: opacity var(--dur-ui) var(--ease-out);
   pointer-events: none;
 }
 .lightbox.is-loading .lightbox__stage::after { opacity: 1; transition-delay: 250ms; animation: spin 800ms linear infinite; }
-.lightbox__img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
+/* Absolutely centred so the size limits resolve against the stage (which takes the free height). */
+.lightbox__img { position: absolute; inset: 0; margin: auto; max-width: 100%; max-height: 100%; }
+.lightbox__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
 }
 .lightbox__caption {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
-  text-align: center;
+  font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 .lightbox__count {
   position: absolute;
-  top: 1.5rem;
+  top: 1.6rem;
   left: clamp(1rem, 4vw, 2.5rem);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: var(--stone);
 }
 .lightbox__btn {
   position: absolute;
   display: grid;
   place-items: center;
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: var(--card);
-  transition: background-color var(--dur), color var(--dur), border-color var(--dur);
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 1px solid var(--line-strong);
+  background: rgb(12 12 11 / 0.6);
+  color: var(--paper);
+  transition: background-color var(--dur-ui), color var(--dur-ui), border-color var(--dur-ui);
 }
 .lightbox__btn svg { width: 1.2rem; height: 1.2rem; }
 @media (hover: hover) {
-  .lightbox__btn:hover { background: var(--dark); border-color: var(--dark); color: #fff; }
+  .lightbox__btn:hover { background: var(--paper); border-color: var(--paper); color: var(--ink); }
 }
 .lightbox__close { top: 1rem; right: clamp(1rem, 4vw, 2.5rem); }
 .lightbox__prev, .lightbox__next { top: 50%; translate: 0 -50%; }
@@ -342,10 +360,10 @@
 .lightbox[data-single] .lightbox__next,
 .lightbox[data-single] .lightbox__count { display: none; }
 @media (max-width: 767px) {
-  .lightbox { padding-inline: 1rem; padding-bottom: 5.5rem; }
+  .lightbox { padding-inline: 1rem; padding-bottom: 5.75rem; }
   .lightbox__prev, .lightbox__next { top: auto; bottom: 1.25rem; translate: none; }
-  .lightbox__prev { left: calc(50% - 3.5rem); }
-  .lightbox__next { right: calc(50% - 3.5rem); }
+  .lightbox__prev { left: calc(50% - 3.75rem); }
+  .lightbox__next { right: calc(50% - 3.75rem); }
 }
 
 /* ==========================================================================
@@ -361,21 +379,21 @@
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: rgb(250 249 246 / 0.9);
+  background: rgb(17 17 15 / 0.78);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-md);
-  color: var(--text);
+  color: var(--paper);
   opacity: 0;
   visibility: hidden;
   translate: 0 12px;
   transition:
-    opacity var(--dur) var(--ease-out),
-    translate var(--dur) var(--ease-out),
-    visibility 0s linear var(--dur),
-    background-color var(--dur) var(--ease-out),
-    color var(--dur) var(--ease-out),
-    scale var(--dur-fast) var(--ease-out);
+    opacity var(--dur-ui) var(--ease-out),
+    translate var(--dur-ui) var(--ease-out),
+    bottom var(--dur-ui) var(--ease-out),
+    visibility 0s linear var(--dur-ui),
+    background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out),
+    scale var(--dur-micro) var(--ease-out);
 }
 .to-top.is-visible {
   opacity: 1;
@@ -384,15 +402,41 @@
   transition-delay: 0s;
 }
 .to-top__ring { position: absolute; inset: 0; width: 100%; height: 100%; rotate: -90deg; overflow: visible; }
-.to-top__ring circle { fill: none; stroke: var(--border); stroke-width: 1.25; }
+.to-top__ring circle { fill: none; stroke: rgb(242 238 230 / 0.18); stroke-width: 1; }
 .to-top__ring .to-top__progress {
-  stroke: var(--accent);
+  stroke: var(--brass);
   stroke-dasharray: 1;
   stroke-dashoffset: calc(1 - var(--progress, 0));
 }
-.to-top__icon { width: 1.1rem; height: 1.1rem; transition: translate var(--dur) var(--ease-out); }
+.to-top__icon { width: 1.1rem; height: 1.1rem; transition: translate var(--dur-ui) var(--ease-out); }
 @media (hover: hover) {
-  .to-top:hover { background: var(--dark); color: #fff; }
+  .to-top:hover { background: var(--paper); color: var(--ink); }
   .to-top:hover .to-top__icon { translate: 0 -2px; }
 }
 .to-top:active { scale: 0.94; }
+
+/* ==========================================================================
+   Sticky booking button (phones only)
+   Appears once the hero has scrolled away; steps aside over the booking, contact and footer
+   sections so it never covers the form or the details people are reading.
+   ========================================================================== */
+.sticky-cta { display: none; }
+@media (max-width: 767px) {
+  .sticky-cta {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 85;
+    display: block;
+    padding: 1.25rem var(--gutter) calc(0.625rem + env(safe-area-inset-bottom));
+    background: linear-gradient(to top, rgb(17 17 15 / 0.92) 40%, rgb(17 17 15 / 0));
+    pointer-events: none; /* only the button itself takes taps; the fade above it doesn't block the page */
+    translate: 0 110%;
+    visibility: hidden;
+    transition: translate var(--dur-ui) var(--ease-out), visibility 0s linear var(--dur-ui);
+  }
+  .sticky-cta.is-visible { translate: 0 0; visibility: visible; transition-delay: 0s; }
+  .sticky-cta .btn { min-height: 3rem; pointer-events: auto; }
+  /* One floating control at a time: back-to-top steps aside while the booking button is up
+     (the footer has its own "Back to top"). */
+  .has-sticky-cta .to-top { opacity: 0; visibility: hidden; translate: 0 12px; transition-delay: 0s, 0s, 0s, var(--dur-ui); }
+}

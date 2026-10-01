@@ -2,6 +2,8 @@
  * Horizontal scrollers (styles carousel, reviews).
  * Native overflow scrolling + scroll-snap does the heavy lifting (touch swipe, keyboard, trackpads);
  * this adds prev/next buttons, a progress bar and mouse drag-with-momentum on desktop.
+ * While the styles row is pinned (desktop, see styles-rail.js) it is driven by the page scroll
+ * instead, and this module steps aside.
  */
 import { reducedMotion as reduced } from './motion.js';
 
@@ -11,6 +13,7 @@ function setupScroller(track) {
   const next = document.querySelector(`[data-scroller-next="${name}"]`);
   const bar = document.querySelector(`[data-scroller-progress="${name}"]`);
   const list = track.firstElementChild;
+  const pinned = () => !!track.closest('.is-pinned');
 
   const step = () => {
     const item = list.children[0];
@@ -19,6 +22,7 @@ function setupScroller(track) {
   };
 
   const update = () => {
+    if (pinned()) return;
     const max = track.scrollWidth - track.clientWidth;
     const ratio = max > 0 ? track.scrollLeft / max : 1;
     const visible = track.clientWidth / track.scrollWidth;
@@ -27,11 +31,15 @@ function setupScroller(track) {
     if (next) next.disabled = track.scrollLeft >= max - 2;
   };
 
-  const go = (dir) => track.scrollBy({ left: dir * step(), behavior: reduced() ? 'auto' : 'smooth' });
+  const go = (dir) => {
+    if (pinned()) return;
+    track.scrollBy({ left: dir * step(), behavior: reduced() ? 'auto' : 'smooth' });
+  };
   prev?.addEventListener('click', () => go(-1));
   next?.addEventListener('click', () => go(1));
   track.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
+  track.addEventListener('scroller:refresh', update);
   update();
 
   if (!track.hasAttribute('data-draggable')) return;
@@ -47,7 +55,7 @@ function setupScroller(track) {
   let raf = 0;
 
   track.addEventListener('pointerdown', (e) => {
-    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    if (e.pointerType !== 'mouse' || e.button !== 0 || pinned()) return;
     cancelAnimationFrame(raf);
     dragging = true;
     moved = false;
