@@ -76,7 +76,7 @@ export function runLoader() {
 
   return new Promise((resolve) => {
     const intro = gsap.timeline({ defaults: { ease: EASE.out } })
-      .fromTo(letters, { yPercent: 110 }, { yPercent: 0, duration: 0.75, stagger: 0.05, ease: EASE.line }, 0)
+      .fromTo(letters, { yPercent: 110 }, { yPercent: 0, duration: 0.75, stagger: 0.05, ease: EASE.out }, 0)
       .fromTo(fades, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.06 }, 0.2)
       .add(() => snip.play(), 0.3)
       // Something is always moving: creep to 30% while the first assets arrive.

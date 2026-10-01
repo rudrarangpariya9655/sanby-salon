@@ -4,15 +4,15 @@
 .loader { display: none; }
 /* While the loader is up, the reserved scrollbar gutter shows the canvas: keep it dark too.
    (Reverts by itself when loader.js removes the element.) */
-.anim:not(.no-loader):has(body > .loader) { background: #1f1e1c; }
+.anim:not(.no-loader):has(body > .loader) { background: var(--ink); }
 .anim:not(.no-loader) .loader {
   position: fixed;
   inset: 0;
   z-index: 300;
   display: grid;
   place-items: center;
-  background: #1f1e1c;
-  color: var(--bg);
+  background: var(--ink);
+  color: var(--paper);
   /* Leaves room at the bottom for the tagline + counter so nothing collides on short screens. */
   padding-bottom: clamp(4rem, 12vh, 7rem);
 }
@@ -27,11 +27,11 @@
   display: flex;
   overflow: hidden;
   padding: 0.06em 0;
-  margin-right: -0.2em; /* optical centering for tracked text */
+  margin-right: -0.3em; /* optical centering for tracked text */
   font-family: var(--font-display);
-  font-size: clamp(3.25rem, 11vw, 8rem);
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-size: clamp(3.5rem, 12vw, 8.5rem);
+  font-weight: 500;
+  letter-spacing: 0.3em;
 }
 .loader__word span { display: inline-block; }
 .loader__sub {
@@ -41,7 +41,7 @@
   font-weight: 600;
   letter-spacing: 0.7em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--brass);
 }
 .loader__track {
   position: relative;
@@ -49,7 +49,7 @@
   height: 44px;
   margin-top: clamp(2.25rem, 5vw, 3.5rem);
 }
-/* Dashed guide line = uncut; solid gold line = cut */
+/* Dashed guide line = uncut; solid brass line = cut */
 .loader__track::before,
 .loader__line {
   content: '';
@@ -58,11 +58,10 @@
   right: 0;
   top: 50%;
 }
-.loader__track::before { border-top: 1px dashed rgb(250 249 246 / 0.28); }
+.loader__track::before { border-top: 1px dashed rgb(242 238 230 / 0.25); }
 .loader__line {
-  height: 1.5px;
-  margin-top: -0.25px;
-  background: var(--gold-light);
+  height: 1px;
+  background: var(--brass);
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -73,7 +72,7 @@
   width: clamp(52px, 6vw, 68px);
   margin-top: calc(clamp(52px, 6vw, 68px) / -4);
   margin-left: calc(clamp(52px, 6vw, 68px) * -0.93); /* tips sit on the cut point */
-  color: var(--gold-light);
+  color: var(--brass);
   overflow: visible;
 }
 .loader__scissors .blade { transform-box: view-box; transform-origin: 58px 30px; }
@@ -85,20 +84,21 @@
 }
 .loader__tag {
   left: var(--gutter);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgb(250 249 246 / 0.55);
+  color: rgb(242 238 230 / 0.5);
 }
 .loader__count {
   right: var(--gutter);
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  font-weight: 500;
   line-height: 1;
   font-variant-numeric: tabular-nums lining-nums;
 }
-.loader__count small { font-size: 0.4em; margin-left: 0.15em; color: var(--gold-light); }
+.loader__count small { font-size: 0.4em; margin-left: 0.15em; color: var(--brass); }
 @media (max-width: 599px) {
   .loader__tag { display: none; }
   .loader__count { left: 0; right: 0; text-align: center; }

@@ -1,22 +1,23 @@
 <div align="center">
 
-# S A N B Y &nbsp; S A L O N
+# S A N B Y
 
-**Sharp Cuts. Clean Style. Confidence.**
+**Sharp cuts. Clean style. Pure confidence.**
 
-A cinematic, editorial website for a premium men's grooming studio.
+A cinematic, editorial website for a premium men's grooming studio —<br>
+luxury barbershop × gentleman's club × fashion editorial.
 
-[![Live site](https://img.shields.io/badge/Live_site-View-8a6740?style=for-the-badge)](https://dynamic-sprite-c45f1e.netlify.app/)
+[![Live site](https://img.shields.io/badge/Live_site-View-b89a68?style=for-the-badge&labelColor=11110f)](https://sanby-salon.vercel.app/)
 
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![GSAP](https://img.shields.io/badge/GSAP-3-0AE448?style=flat-square&logo=greensock&logoColor=black)
 ![JavaScript](https://img.shields.io/badge/Vanilla_JS-ES2019-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![CSS](https://img.shields.io/badge/CSS-no_framework-663399?style=flat-square&logo=css&logoColor=white)
-![Netlify](https://img.shields.io/badge/Hosted_on-Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)
+![Vercel](https://img.shields.io/badge/Hosted_on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
 <br>
 
-<img src="docs/screenshots/hero.jpg" alt="Sanby Salon homepage hero: 'Your Style. Your Confidence. Your Salon.' beside a photo of a barber at work" width="100%">
+<img src="docs/screenshots/hero.jpg" alt="Sanby Salon homepage: 'Sharp Cuts. Clean Style. Pure Confidence.' over a full-screen photo of a barber trimming a beard" width="100%">
 
 </div>
 
@@ -24,52 +25,57 @@ A cinematic, editorial website for a premium men's grooming studio.
 
 ## ✦ Overview
 
-Sanby Salon is a single-page website that feels like a luxury barbershop crossed with an editorial fashion magazine: warm ivory and charcoal, Playfair Display headlines, generous whitespace and deliberate, unhurried motion.
+Sanby is a single-page site built to feel like a brand, not a template: charcoal and warm ivory with a single muted-brass accent, large Cormorant Garamond headlines, full-bleed photography and asymmetric editorial layouts. Motion is slow and deliberate — you notice the quality, not the animation library.
 
-Everything leads to one action: **Book Appointment**.
+Everything leads to one action: **Book a Chair**.
 
 <table>
   <tr>
     <td width="33%"><img src="docs/screenshots/mobile-hero.jpg" alt="Mobile hero"></td>
-    <td width="33%"><img src="docs/screenshots/mobile-about.jpg" alt="Mobile About section with animated statistics"></td>
+    <td width="33%"><img src="docs/screenshots/mobile-services.jpg" alt="Mobile services list"></td>
     <td width="33%"><img src="docs/screenshots/mobile-menu.jpg" alt="Full-screen mobile menu"></td>
   </tr>
   <tr>
     <td align="center"><sub>Hero</sub></td>
-    <td align="center"><sub>About &amp; stats</sub></td>
-    <td align="center"><sub>Mobile menu</sub></td>
+    <td align="center"><sub>Signature services</sub></td>
+    <td align="center"><sub>Full-screen menu</sub></td>
   </tr>
 </table>
 
-## ✦ Features
+## ✦ The page
 
-| | |
+| Section | What makes it work |
 |---|---|
-| 🎬 **Cinematic intro** | Branded preloader with real progress (fonts + hero photo), then a staggered hero entrance: masked image reveal, line-by-line headline, then the call to action. Plays once per session. |
-| 🧭 **Smart navigation** | Transparent at the top, compact and frosted on scroll. A sliding indicator marks the current section. Full-screen mobile menu with focus trap and scroll lock. |
-| ✂️ **Services** | Editorial list with hover transitions and a cursor-following image preview on desktop. Clicking a service pre-selects it in the booking form. |
-| 💈 **Trending styles** | Horizontal carousel with native touch swipe, mouse drag with momentum, and prev/next buttons. |
-| ↔️ **Before / after** | Comparison slider that works with mouse, touch and keyboard, and gives one gentle "try me" hint on first view. |
-| 🖼️ **Gallery** | Mixed-size editorial grid with category tags and a lazy-loaded lightbox (arrow keys, swipe, Esc). |
-| 📅 **Booking form** | Floating labels, inline validation, and loading / success / error states. Sends to a form endpoint or WhatsApp, whichever you configure. |
-| 🖱️ **Micro-interactions** | Subtle cursor ring on desktop, magnetic buttons, arrow and underline transitions, a scroll-reactive service ribbon, and a barber-themed footer wordmark. |
+| 🎬 **Cinematic hero** | Full-screen photograph that fades up and slowly settles, then the headline reveals line by line. Drifts and zooms gently as you scroll away. Branded scissor preloader on the first visit of a session. |
+| 🧭 **Navigation** | Transparent over the hero, then dark, blurred and slimmer on scroll, with a brass marker on the current section. Phones get a full-screen menu with large numbered links. |
+| ✂️ **Signature services** | A large editorial list, not six cards. On desktop the photograph on the right follows the row you point at. Every row pre-selects its service in the booking form. |
+| 💈 **Featured hairstyles** | On desktop the row slides sideways as you scroll down, with a live `01 / 06` counter. Phones and tablets get a native swipe carousel. Any style opens full-screen with **Book this look**. |
+| 🪑 **The Sanby experience** | A sticky photograph that changes as each step — Consultation, Precision Cut, Detail & Finish — comes into focus. |
+| ↔️ **Before / after** | Large comparison slider for mouse, touch and keyboard, with a slow pulse on the handle until it's first used. Tagged "Sample imagery" on the photo itself until a real client pair is supplied. |
+| 🖼️ **Gallery** | Editorial mosaic of mixed sizes with a lazy-loaded full-screen viewer (arrow keys, swipe, Esc). |
+| ⭐ **Reviews** | One featured quote set large, the rest in a sideways row. Driven by config, and labelled as samples (no star ratings) until verified reviews are added. |
+| 📅 **Booking** | Photographic call to action, then a request form with service and time choices, inline validation and clear "the salon will confirm" messaging. Optional **Book through WhatsApp**. |
+| 📍 **Visit Sanby** | Contact details, map and oversized opening hours — all from config. |
 
 <details>
 <summary><b>More screenshots</b></summary>
 <br>
 
-<img src="docs/screenshots/services.jpg" alt="Services section">
+<img src="docs/screenshots/services.jpg" alt="Signature services with image preview">
+<img src="docs/screenshots/styles.jpg" alt="Featured hairstyles row">
 <img src="docs/screenshots/before-after.jpg" alt="Before and after comparison slider">
-<img src="docs/screenshots/gallery.jpg" alt="Editorial gallery">
+<img src="docs/screenshots/gallery.jpg" alt="Editorial gallery mosaic">
+<img src="docs/screenshots/booking.jpg" alt="Appointment request form">
 
 </details>
 
 ## ✦ Built with care
 
-- **♿ Accessible:** semantic HTML, a logical heading order, visible focus states, labelled form fields, a keyboard-operable slider and lightbox, and a skip link.
-- **🌙 Respects reduced motion:** with `prefers-reduced-motion`, there's no preloader, parallax or movement; content simply fades in.
-- **⚡ Fast:** transform and opacity animations only, lazy-loaded images with responsive AVIF/WebP `srcset`, self-hosted variable fonts, and a lightbox that downloads only when first opened. Layout shift is ~0.
-- **🔍 SEO-ready:** meta and social tags, canonical URL, `robots.txt`, `sitemap.xml`, and `HairSalon` structured data generated from confirmed details only.
+- **📱 Phone-first details:** a sticky **Book a Chair** button that steps aside over the form, contact details and footer; 44px touch targets; no horizontal overflow from 320px up.
+- **♿ Accessible:** semantic HTML and a logical heading outline, visible focus states, labelled fields and radio groups, a keyboard-operable slider, carousel and viewer, and a skip link. No axe-core violations at WCAG 2.2 AA.
+- **🌙 Respects reduced motion:** with `prefers-reduced-motion` there's no preloader, parallax, sideways scrolling or cursor effects — content simply fades in.
+- **⚡ Fast:** transform and opacity animations only, sticky CSS rather than JS pinning, lazy-loaded images with art-directed AVIF/WebP `srcset`, self-hosted variable fonts, and a viewer that downloads only when first opened. Layout shift ≈ 0.
+- **🔍 SEO-ready:** title, description, Open Graph and X tags, canonical URL, `robots.txt`, `sitemap.xml`, and `HairSalon` structured data built from confirmed details only.
 - **🙅 Makes nothing up:** unknown business details show as clearly marked placeholders until they're provided.
 
 ## ✦ Getting started
@@ -89,13 +95,16 @@ All business details live in one file: **[`site.config.js`](site.config.js)**. L
 export default {
   name: 'Sanby Salon',
   address: '',          // one line
+  addressDetails: { locality: '', region: '', postalCode: '', country: '' }, // structured data only
   phone: '',            // '+<country code> <number>'
   whatsapp: '',
   instagram: '',        // handle, without @
   facebook: '',         // full URL
-  hours: [{ days: 'Mon – Sat', time: '' }, { days: 'Sunday', time: '' }],
+  hours: [{ days: 'Mon – Sat', time: '', schema: '' }, { days: 'Sunday', time: '', schema: '' }],
+  figures: { confirmed: false, items: [/* { value, suffix, star, label } */] },
   map: { link: '', embed: '' },
   services: { 'haircut': { duration: '', price: '' }, /* … */ },
+  reviews: { verified: false, link: '', items: [/* { quote, name, service, rating } */] },
   booking: { endpoint: '' }, // e.g. a Formspree URL
 };
 ```
@@ -104,11 +113,16 @@ Filling a value in automatically updates the page at build time:
 
 | Setting | Effect |
 |---|---|
-| `phone` | "Call Salon" becomes a `tel:` link, and a **Call** button appears under the contact details |
-| `whatsapp` | Adds a **WhatsApp** button. With no `booking.endpoint`, the form opens WhatsApp with the request pre-filled |
-| `map.link` / `map.embed` | Adds a **Directions** button and swaps the "Map coming soon" panel for a Google Map |
-| `services` | Shows a duration and/or price under each service, e.g. `45 min · From 500` |
-| `booking.endpoint` | The form sends requests there, with loading, success and error states |
+| `phone` | Tap-to-call links, a **Call** button under the contact details, **Call the Salon** in the booking band, and the number in the mobile menu |
+| `whatsapp` | A **WhatsApp** button and **Book through WhatsApp** in the form (opens WhatsApp with the request pre-filled) |
+| `instagram` | Linked handle in the contact details, footer and mobile menu |
+| `map.link` / `map.embed` | A **Directions** button, and the "Map coming soon" panel becomes a Google Map |
+| `hours` | The opening hours table; `schema` (e.g. `Mo-Sa 10:00-20:00`) adds them to the structured data |
+| `figures` | The "at a glance" numbers in About. Shown with a "To be confirmed" note until `confirmed: true` |
+| `addressDetails` | City, region, postcode and country for the structured data |
+| `services` | A duration and/or price under each service, e.g. `45 min · From 500` |
+| `reviews` | The featured quote and the review row. Set `verified: true` only for real reviews — that removes the "Sample" labels and shows star ratings; `link` adds **Read all reviews** |
+| `booking.endpoint` | The form sends requests there, with loading, success and error states. Until an endpoint or `whatsapp` is set, the form says up front that online requests aren't connected yet |
 | everything above | Confirmed details are added to the structured data |
 
 > [!NOTE]
@@ -117,43 +131,46 @@ Filling a value in automatically updates the page at build time:
 ## ✦ Before launch
 
 - [ ] Fill in the business details in `site.config.js`
-- [ ] Set the real domain in `.env` → `SITE_URL` (used for the canonical URL, Open Graph, sitemap and robots)
-- [ ] Confirm the stats (5+ years, 1000+ clients, 4.9 rating) in `index.html` → `[data-stats]`
-- [ ] Replace the sample reviews in `#reviews` with real, verified ones, and remove the `.reviews__notice` line
+- [ ] Replace the sample reviews in `site.config.js` → `reviews` with real, verified ones, then set `verified: true`
+- [ ] Confirm the figures (5+ years, 1000+ clients, 4.9 rating) in `site.config.js` → `figures`, then set `confirmed: true`
+- [ ] Connect the booking form: set `booking.endpoint` (e.g. Formspree) and/or `whatsapp` in `site.config.js`
 - [ ] Swap in a real before/after pair (same client, with permission) in `#transformation`
 - [ ] Replace the placeholder photography with the salon's own
+- [ ] If the site moves to its own domain, update `.env` → `SITE_URL` (canonical URL, Open Graph, sitemap and robots)
 
 ### Images
 
-The photos are Unsplash placeholders. In `index.html`, an image written as:
+The photos are Unsplash placeholders, given one consistent grade at build time (slightly warm, muted, a touch more contrast) so they read as a single shoot. In `index.html`, an image written as:
 
 ```html
 <img data-img="PHOTO_ID" width="800" height="1000" data-sizes="(min-width: 1024px) 40vw, 100vw" alt="…">
 ```
 
-is expanded at build time into a responsive AVIF/WebP `srcset`, cropped to the `width`/`height` ratio. To use the salon's own photos, swap the IDs or replace the tags with local optimised files (e.g. `public/images/*.webp`) with explicit `width` and `height`.
+is expanded into a responsive AVIF/WebP `srcset`, cropped to the `width`/`height` ratio. `<source data-img>` inside `<picture>` works the same way, for a different crop on phones. To use the salon's own photos, swap the IDs or replace the tags with local optimised files (e.g. `public/images/*.webp`) with explicit `width` and `height`.
 
 ## ✦ Project structure
 
 ```
-├── index.html               Semantic markup for every section, from navbar to footer
-├── site.config.js           Business details (the only file most edits need)
+├── index.html               Semantic markup for every section, from navigation to footer
+├── site.config.js           Business details and reviews (the only file most edits need)
 ├── vite.config.js           Build plugins: responsive images, config → HTML, SEO files
 ├── public/                  Favicon
 └── src/
     ├── main.js              Entry point: fonts, styles, module setup
     ├── styles/              base (tokens) · components · nav-hero · sections · contact-footer · loader
     └── js/
-        ├── motion.js        Shared eases, durations, reduced-motion / pointer checks
+        ├── motion.js        Shared easing, durations, reduced-motion / pointer checks
         ├── loader.js        Branded preloader
-        ├── animations.js    Hero entrance, scroll reveals, counters, parallax, marquee, wordmark
-        ├── nav.js           Sticky nav, active-section indicator, mobile menu
+        ├── animations.js    Hero, scroll reveals, separators, counters, parallax, experience steps, wordmark
+        ├── nav.js           Navigation, active-section marker, mobile menu, smooth in-page links
+        ├── service-preview.js  Service image panel + pre-selecting services in the form
+        ├── styles-rail.js   Featured hairstyles: sideways scroll on desktop
         ├── scroller.js      Carousels: native swipe + mouse drag with momentum
         ├── compare.js       Before/after slider
-        ├── service-preview.js  Cursor-following service images (desktop)
         ├── pointer.js       Cursor ring + magnetic buttons (desktop)
         ├── lightbox*.js     Lazy-loaded image viewer
-        ├── booking-form.js  Validation and delivery
+        ├── booking-form.js  Validation and delivery (endpoint / WhatsApp / not connected)
+        ├── sticky-cta.js    Phone-only sticky booking button
         └── back-to-top.js   Floating back-to-top with progress ring
 ```
 
@@ -161,13 +178,13 @@ is expanded at build time into a responsive AVIF/WebP `srcset`, cropped to the `
 <summary><b>Motion notes for developers</b></summary>
 <br>
 
-- All timing lives in `src/js/motion.js`, so the feel of the whole site can be tuned in one place.
+- All timing lives in `src/js/motion.js` (GSAP) and the `--ease-out` / `--dur-*` tokens in `src/styles/base.css` (CSS). The site-wide ease is `cubic-bezier(0.16, 1, 0.3, 1)`: micro interactions 150–250ms, UI transitions 300–450ms, editorial reveals 600–900ms.
 - Reveal variants:
   - `data-reveal`: fades up
   - `data-reveal="mask"`: wipes an image open
-  - `data-reveal="panel"`: opens the booking panel on scroll
-  - `data-reveal="fade"`: fades in place
-- Use `data-reveal="fade"` on anything a link scrolls to (like the booking form). Otherwise the browser aims at it while it's still offset and stops short.
+  - `data-reveal="fade"`: fades in place — use it on anything a link scrolls to (like the booking form), so the browser doesn't aim at it while it's still offset
+  - `data-split`: headline revealed line by line
+  - `data-line`: thin separator that draws in
 - Content is hidden before animating only while the script is running. A fallback timer reveals everything if the script never loads.
 
 </details>

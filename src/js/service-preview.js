@@ -1,65 +1,54 @@
-import { gsap } from 'gsap';
-import { EASE, finePointer, reducedMotion } from './motion.js';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { finePointer } from './motion.js';
 
-/* Desktop: a floating image follows the cursor over the services list. Clicking a service pre-selects it in the booking form. */
+/*
+ * Signature services.
+ *  - Any link marked [data-service] (service rows, "Book a consultation") pre-selects that service
+ *    in the booking form.
+ *  - Desktop: the photograph beside the list follows the row you point at — or, while you simply
+ *    scroll, the row in the middle of the screen.
+ */
 export function initServicePreview() {
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[data-service]');
+    if (link) window.dispatchEvent(new CustomEvent('booking:prefill', { detail: { service: link.dataset.service } }));
+  });
+
   const list = document.querySelector('[data-services]');
   const preview = document.querySelector('[data-service-preview]');
   if (!list || !preview) return;
 
-  const links = [...list.querySelectorAll('.service__link')];
+  const rows = [...list.querySelectorAll('.service')];
+  const imgs = [...preview.querySelectorAll('img')];
+  const num = preview.querySelector('[data-preview-num]');
+  const name = preview.querySelector('[data-preview-name]');
+  let active = -1;
+  let pointing = false;
 
-  links.forEach((link) => {
-    link.addEventListener('click', () => {
-      const select = document.querySelector('#f-service');
-      const title = link.querySelector('.service__title')?.textContent.trim();
-      if (select && title) {
-        select.value = title;
-        select.dispatchEvent(new Event('change'));
-      }
-    });
-  });
-
-  if (!finePointer() || reducedMotion() || !window.matchMedia('(min-width: 1024px)').matches) return;
-
-  const imgs = links.map((link) => {
-    const src = link.querySelector('.service__thumb img');
-    const img = document.createElement('img');
-    img.alt = '';
-    img.decoding = 'async';
-    img.srcset = src.getAttribute('srcset');
-    img.sizes = '260px';
-    img.src = src.getAttribute('src');
-    preview.append(img);
-    return img;
-  });
-
-  const xTo = gsap.quickTo(preview, 'x', { duration: 0.6, ease: EASE.out });
-  const yTo = gsap.quickTo(preview, 'y', { duration: 0.6, ease: EASE.out });
-  const rTo = gsap.quickTo(preview, 'rotation', { duration: 0.8, ease: EASE.out });
-  const GAP = 40; // px between the cursor and the image, so the title being read stays uncovered
-  let lastX = 0;
-
-  // Sits beside the cursor — to the right, or to the left when there's no room.
-  const left = (x) => {
-    const w = preview.offsetWidth;
-    return x + GAP + w < window.innerWidth - 16 ? x + GAP : x - GAP - w;
+  const show = (i) => {
+    if (i === active || !imgs[i]) return;
+    imgs.forEach((img) => img.classList.remove('is-prev'));
+    if (active >= 0) imgs[active].classList.replace('is-active', 'is-prev');
+    imgs[i].classList.add('is-active');
+    num.textContent = String(i + 1).padStart(2, '0');
+    name.textContent = rows[i].querySelector('.service__name').textContent;
+    active = i;
   };
+  show(0);
 
-  list.addEventListener('pointerenter', (e) => {
-    gsap.set(preview, { x: left(e.clientX), y: e.clientY });
-    lastX = e.clientX;
-    preview.classList.add('is-visible');
+  rows.forEach((row, i) => {
+    row.addEventListener('pointerenter', () => { pointing = true; show(i); });
+    row.addEventListener('focusin', () => show(i));
   });
-  list.addEventListener('pointerleave', () => preview.classList.remove('is-visible'));
-  list.addEventListener('pointermove', (e) => {
-    xTo(left(e.clientX));
-    yTo(e.clientY);
-    rTo(gsap.utils.clamp(-6, 6, (e.clientX - lastX) * 0.4));
-    lastX = e.clientX;
-  });
+  list.addEventListener('pointerleave', () => { pointing = false; });
 
-  links.forEach((link, i) => {
-    link.addEventListener('pointerenter', () => imgs.forEach((img, j) => img.classList.toggle('is-active', i === j)));
+  if (!finePointer()) return;
+  rows.forEach((row, i) => {
+    ScrollTrigger.create({
+      trigger: row,
+      start: 'top 55%',
+      end: 'bottom 55%',
+      onToggle: (self) => { if (self.isActive && !pointing) show(i); },
+    });
   });
 }

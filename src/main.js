@@ -1,5 +1,5 @@
-import '@fontsource-variable/playfair-display/wght.css';
-import '@fontsource-variable/playfair-display/wght-italic.css';
+import '@fontsource-variable/cormorant-garamond/wght.css';
+import '@fontsource-variable/cormorant-garamond/wght-italic.css';
 import '@fontsource-variable/manrope/wght.css';
 
 import './styles/base.css';
@@ -19,6 +19,8 @@ import { initPointer } from './js/pointer.js';
 import { initLightboxTriggers } from './js/lightbox-triggers.js';
 import { initBookingForm } from './js/booking-form.js';
 import { initBackToTop } from './js/back-to-top.js';
+import { initStylesRail } from './js/styles-rail.js';
+import { initStickyCta } from './js/sticky-cta.js';
 
 clearTimeout(window.__animFallback);
 
@@ -26,12 +28,14 @@ const loaderDone = runLoader();
 
 initNav();
 initScrollers();
+initStylesRail();
 initCompare();
 initServicePreview();
 initPointer();
 initLightboxTriggers();
 initBookingForm();
 initBackToTop();
+initStickyCta();
 
 // Wait for fonts so split-line measurements use the final typeface.
 const fontsReady = document.fonts?.ready ?? Promise.resolve();

@@ -2,6 +2,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { reducedMotion } from './motion.js';
 
+gsap.registerPlugin(ScrollTrigger);
+
 /* Before / after comparison slider — pointer drag anywhere on the image, plus keyboard on the handle. */
 export function initCompare() {
   document.querySelectorAll('[data-compare]').forEach((el) => {
@@ -13,11 +15,15 @@ export function initCompare() {
       el.style.setProperty('--pos', `${state.pos}%`);
       el.style.setProperty('--p', state.pos.toFixed(2)); // unitless copy: labels fade near the edges in CSS
       handle.setAttribute('aria-valuenow', Math.round(state.pos));
-      handle.setAttribute('aria-valuetext', `${Math.round(state.pos)}% before`);
+      handle.setAttribute('aria-valuetext', `${Math.round(state.pos)}% before, ${100 - Math.round(state.pos)}% after`);
     };
 
-    // The user is always in control: any input cancels the intro hint or a click glide.
-    const takeOver = () => gsap.killTweensOf(state);
+    // The user is always in control: any input cancels the intro hint or a click glide,
+    // and stops the handle's "drag me" pulse for good.
+    const takeOver = () => {
+      gsap.killTweensOf(state);
+      el.classList.add('is-touched');
+    };
 
     const fromEvent = (e) => {
       const r = el.getBoundingClientRect();

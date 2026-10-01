@@ -31,7 +31,8 @@ function activeSection(nav) {
   };
 
   // Every section reports when it crosses the middle of the viewport. Sections without a nav link
-  // (before/after, why, booking) clear the highlight rather than leaving the previous one lit.
+  // (hero, experience, before/after, why, reviews, booking) clear the highlight rather than leaving
+  // the previous one lit.
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -109,6 +110,26 @@ function mobileMenu(nav) {
   DESKTOP.addEventListener('change', (e) => { if (e.matches) closeMenu(); });
 }
 
+/*
+ * In-page links glide to their section (instantly with reduced motion) and take keyboard focus along,
+ * so the next Tab continues from where the reader landed. Done here rather than with CSS
+ * `scroll-behavior`, which would also animate ScrollTrigger's own measuring jumps.
+ */
+function anchors() {
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const id = decodeURIComponent(a.hash.slice(1));
+    const target = id && document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+    if (location.hash !== a.hash) history.pushState(null, '', a.hash);
+    if (!target.matches('a[href], button, input, select, textarea, [tabindex]')) target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+  });
+}
+
 export function initNav() {
   const nav = document.querySelector('[data-nav]');
   if (!nav) return;
@@ -124,4 +145,5 @@ export function initNav() {
 
   activeSection(nav);
   mobileMenu(nav);
+  anchors();
 }

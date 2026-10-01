@@ -17,10 +17,5 @@ export function initBackToTop() {
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   update();
-
-  // Hand keyboard focus back to the top of the page along with the scroll.
-  btn.addEventListener('click', () => {
-    const logo = document.querySelector('.nav__logo');
-    logo?.focus({ preventScroll: true });
-  });
+  // Scrolling and moving focus back to the top are handled by the in-page link logic in nav.js.
 }
